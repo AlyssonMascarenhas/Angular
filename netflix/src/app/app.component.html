@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="header">
+    <!-- Banner Area Starts Here -->
+    <div
+      class="header__banner"
+      [ngStyle]="{
+        'background-image':
+          'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(' +
+          headerBGUrl +
+          ')'
+      }"
+    >
+      <h2>{{ trending.results[0].title || "" }}</h2>
+      <div class="header__buttons">
+        <button class="play-button">
+          <mat-icon>arrow_right</mat-icon>
+          <span>Assistir</span>
+        </button>
+
+        <button class="more-button">
+          <mat-icon>info</mat-icon>
+          <span>Mais Informações</span>
+        </button>
+      </div>
+    </div>
+    <!-- Banner Area Ends Here -->
+    <!-- Main Area Starts Here-->
+    <div
+      class="header_main"
+      id="stickyHeader"
+      [class.sticky]="sticky"
+      #stickHeader
+    >
+      <!-- Header Main Starts Here -->
+      <div
+        class="header__main"
+        id="stickyHeader"
+        [class.sticky]="sticky"
+        #stickHeader
+      >
+        <div class="header__left">
+          <a routerLink="/">
+            <img src="assets/netflix.svg" alt="logo" />
+          </a>
+          <ul>
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="#">Séries</a></li>
+            <li><a href="#">Filmes</a></li>
+            <li><a href="#">Lançamentos</a></li>
+            <li><a href="#">Minha Lista</a></li>
+          </ul>
+        </div>
+
+        <div class="header__right">
+          <ul>
+            <li>
+              <a href="#"><mat-icon>search</mat-icon></a>
+            </li>
+            <li><a href="#">Crianças</a></li>
+            <li>
+              <a href="#"><mat-icon>card_giftcard</mat-icon></a>
+            </li>
+            <li>
+              <a href="#"><mat-icon>notifications</mat-icon></a>
+            </li>
+            <li>
+              <img src="assets/avatar.jpg" alt="avatar" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Header Main Ends Here -->
+    </div>
+    <!-- Main Area Ends Here -->
+  </div>
+  <!-- Body Starts Here -->
+  <div class="body" style="margin-top: 30rem">
+    <app-slider
+      titleSection="Mais acessados"
+      [movies]="trending"
+      [sliderConfig]="sliderConfig"
+    ></app-slider>
+    <app-slider
+      titleSection="Mais votados"
+      [movies]="topRated"
+      [sliderConfig]="sliderConfig"
+    ></app-slider>
+    <app-slider
+      titleSection="Continuar Assistindo"
+      [movies]="nowPlaying"
+      [sliderConfig]="sliderConfig"
+    ></app-slider>
+    <app-slider
+      titleSection="Originais Netflix"
+      [movies]="originals"
+      [sliderConfig]="sliderConfig"
+    ></app-slider>
+    <app-slider
+      titleSection="Populares"
+      [movies]="popular"
+      [sliderConfig]="sliderConfig"
+    ></app-slider>
+  </div>
+  <!-- Body Ends Here -->
+</div>
